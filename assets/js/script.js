@@ -163,34 +163,6 @@ document.getElementById('btn-remove').addEventListener('click',function(){
                 }
             }
         }
-        // if(num > 6)
-        // {
-        //     //check section
-        //     if(loadedModel[i].name == 'section-001') addSectionAnimation(loadedModel[i],90);
-        //     if(loadedModel[i].name == 'section-002') addSectionAnimation(loadedModel[i],32);
-
-        //     if(loadedModel[i].name.includes('sticker-')){
-        //         var tubeNum = parseInt(loadedModel[i].name.substring(8,11));
-        //         if(tubeNum <= 6) addSectionAnimation(loadedModel[i],90);
-        //         else addSectionAnimation(loadedModel[i],32);
-
-        //         if(tubeNum == num){
-        //             let tmpModel = loadedModel[i];
-        //             setTimeout(() => {
-        //                 addIlluminateAnimation(tmpModel);
-        //             }, 1000);
-        //         }
-        //     }
-        // }
-        // else{
-        //     if(loadedModel[i].name.includes('sticker-')){
-        //         var tubeNum = parseInt(loadedModel[i].name.substring(8,11));
-        //         if(tubeNum == num){
-        //             let tmpModel = loadedModel[i];
-        //             addIlluminateAnimation(tmpModel);
-        //         }
-        //     }
-        // }
     }
 })
 
