@@ -30,7 +30,7 @@ var createScene = function(){
 
     //load babylon model
     var assetsManager = new BABYLON.AssetsManager(scene);
-    var meshTask = assetsManager.addMeshTask("model task", "", "assets/models/babylon/", "cillindro-02.babylon");
+    var meshTask = assetsManager.addMeshTask("model task", "", "assets/models/babylon/", "cillindro-03.babylon");
 
     meshTask.onSuccess = function (task) {
         loadedModel = task.loadedMeshes;
