@@ -17,12 +17,12 @@ let n_HighlightTimeCount = 0;
 var createScene = function(){
     scene = new BABYLON.Scene(engine);
     
-    camera = new BABYLON.ArcRotateCamera("Camera", 4, 1, 300, new BABYLON.Vector3(0,30,0), scene);
+    camera = new BABYLON.ArcRotateCamera("Camera", 4, 1, 400, new BABYLON.Vector3(0,30,0), scene);
     camera.attachControl(canvas, false);
     camera.upperBetaLimit = 1.57;
     camera.lowerBetaLimit = 0.4;
     
-    camera.upperRadiusLimit = 500;
+    camera.upperRadiusLimit = 600;
     camera.lowerRadiusLimit = 200;
 
     light1 = new BABYLON.PointLight("Omni", new BABYLON.Vector3(200, 200, 100), scene);
@@ -78,44 +78,119 @@ function addIlluminateAnimation(model){
     var hl = new BABYLON.HighlightLayer("hl", scene);
     hl.blurHorizontalSize   = 2;
     hl.blurVerticalSize     = 2;
-    hl.addMesh(model, BABYLON.Color3.Red());
+    hl.addMesh(model, BABYLON.Color3.Green());
 }
 
 document.getElementById('btn-remove').addEventListener('click',function(){
     document.getElementById('input-panel').style.display = 'none';
     document.getElementById('reset').style.display = 'block';
     var num = parseInt(document.getElementById('input-num').value);
-    if(num <= 0 || num > 12) return;
-
+    if(num <= 0 || num > 20) return;
+    console.log('num ',num)
     for(var i in loadedModel){
-        if(num > 6)
-        {
-            //check section
-            if(loadedModel[i].name == 'section-001') addSectionAnimation(loadedModel[i],90);
-            if(loadedModel[i].name == 'section-002') addSectionAnimation(loadedModel[i],32);
-
-            if(loadedModel[i].name.includes('sticker-')){
-                var tubeNum = parseInt(loadedModel[i].name.substring(8,11));
-                if(tubeNum <= 6) addSectionAnimation(loadedModel[i],90);
-                else addSectionAnimation(loadedModel[i],32);
-
-                if(tubeNum == num){
-                    let tmpModel = loadedModel[i];
-                    setTimeout(() => {
-                        addIlluminateAnimation(tmpModel);
-                    }, 1000);
-                }
-            }
-        }
-        else{
-            if(loadedModel[i].name.includes('sticker-')){
-                var tubeNum = parseInt(loadedModel[i].name.substring(8,11));
+        if(num <= 4){
+            if(loadedModel[i].name.includes('Tube-')){
+                var tubeNum = parseInt(loadedModel[i].name.substring(5,8));
+                console.log('tubenum',tubeNum)
                 if(tubeNum == num){
                     let tmpModel = loadedModel[i];
                     addIlluminateAnimation(tmpModel);
                 }
             }
         }
+        else{
+            if(num > 4 && num <= 8){
+                if(loadedModel[i].name == 'section-001') addSectionAnimation(loadedModel[i],120);
+                if(loadedModel[i].name == 'section-002') addSectionAnimation(loadedModel[i],29);
+                if(loadedModel[i].name.includes('Tube-')){
+                    var tubeNum = parseInt(loadedModel[i].name.substring(5,8));
+                    if(tubeNum <= 4) addSectionAnimation(loadedModel[i],120);
+                    else if(tubeNum > 4 && tubeNum <= 8) addSectionAnimation(loadedModel[i],29);
+                }
+            }
+            else if(num > 8 && num <= 12){
+                if(loadedModel[i].name == 'section-001') addSectionAnimation(loadedModel[i],160);
+                if(loadedModel[i].name == 'section-002') addSectionAnimation(loadedModel[i],140);
+                if(loadedModel[i].name == 'section-003') addSectionAnimation(loadedModel[i],51);
+                if(loadedModel[i].name.includes('Tube-')){
+                    var tubeNum = parseInt(loadedModel[i].name.substring(5,8));
+                    
+                    if(tubeNum <= 4) addSectionAnimation(loadedModel[i],160);
+                    else if(tubeNum > 4 && tubeNum <= 8) addSectionAnimation(loadedModel[i],140);
+
+                    else if(tubeNum > 8 && tubeNum <= 12) addSectionAnimation(loadedModel[i],51);
+                }
+            }
+            else if(num > 12 && num <= 16){
+                if(loadedModel[i].name == 'section-001') addSectionAnimation(loadedModel[i],200);
+                if(loadedModel[i].name == 'section-002') addSectionAnimation(loadedModel[i],180);
+                if(loadedModel[i].name == 'section-003') addSectionAnimation(loadedModel[i],160);
+                if(loadedModel[i].name == 'section-004') addSectionAnimation(loadedModel[i],75);
+                if(loadedModel[i].name.includes('Tube-')){
+                    var tubeNum = parseInt(loadedModel[i].name.substring(5,8));
+                    
+                    if(tubeNum <= 4) addSectionAnimation(loadedModel[i],200);
+                    else if(tubeNum > 4 && tubeNum <= 8) addSectionAnimation(loadedModel[i],180);
+                    else if(tubeNum > 8 && tubeNum <= 12) addSectionAnimation(loadedModel[i],160);
+
+                    else if(tubeNum > 12 && tubeNum <= 16) addSectionAnimation(loadedModel[i],75);
+                }
+            }
+            else if(num > 16 && num <= 20){
+                if(loadedModel[i].name == 'section-001') addSectionAnimation(loadedModel[i],240);
+                if(loadedModel[i].name == 'section-002') addSectionAnimation(loadedModel[i],220);
+                if(loadedModel[i].name == 'section-003') addSectionAnimation(loadedModel[i],200);
+                if(loadedModel[i].name == 'section-004') addSectionAnimation(loadedModel[i],180);
+                if(loadedModel[i].name == 'section-005') addSectionAnimation(loadedModel[i],100);
+                if(loadedModel[i].name.includes('Tube-')){
+                    var tubeNum = parseInt(loadedModel[i].name.substring(5,8));
+                    
+                    if(tubeNum <= 4) addSectionAnimation(loadedModel[i],240);
+                    else if(tubeNum > 4 && tubeNum <= 8) addSectionAnimation(loadedModel[i],220);
+                    else if(tubeNum > 8 && tubeNum <= 12) addSectionAnimation(loadedModel[i],200);
+                    else if(tubeNum > 12 && tubeNum <= 16) addSectionAnimation(loadedModel[i],180);
+
+                    else if(tubeNum > 16 && tubeNum <= 20) addSectionAnimation(loadedModel[i],100);
+                }
+            }
+            if(loadedModel[i].name.includes('Tube-')){
+                var tubeNum = parseInt(loadedModel[i].name.substring(5,8));
+                if(tubeNum == num){
+                    var tmpModel = loadedModel[i];
+                    setTimeout(() => {
+                        addIlluminateAnimation(tmpModel);
+                    }, 1000);
+                }
+            }
+        }
+        // if(num > 6)
+        // {
+        //     //check section
+        //     if(loadedModel[i].name == 'section-001') addSectionAnimation(loadedModel[i],90);
+        //     if(loadedModel[i].name == 'section-002') addSectionAnimation(loadedModel[i],32);
+
+        //     if(loadedModel[i].name.includes('sticker-')){
+        //         var tubeNum = parseInt(loadedModel[i].name.substring(8,11));
+        //         if(tubeNum <= 6) addSectionAnimation(loadedModel[i],90);
+        //         else addSectionAnimation(loadedModel[i],32);
+
+        //         if(tubeNum == num){
+        //             let tmpModel = loadedModel[i];
+        //             setTimeout(() => {
+        //                 addIlluminateAnimation(tmpModel);
+        //             }, 1000);
+        //         }
+        //     }
+        // }
+        // else{
+        //     if(loadedModel[i].name.includes('sticker-')){
+        //         var tubeNum = parseInt(loadedModel[i].name.substring(8,11));
+        //         if(tubeNum == num){
+        //             let tmpModel = loadedModel[i];
+        //             addIlluminateAnimation(tmpModel);
+        //         }
+        //     }
+        // }
     }
 })
 
