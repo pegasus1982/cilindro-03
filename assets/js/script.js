@@ -91,7 +91,6 @@ document.getElementById('btn-remove').addEventListener('click',function(){
         if(num <= 4){
             if(loadedModel[i].name.includes('Tube-')){
                 var tubeNum = parseInt(loadedModel[i].name.substring(5,8));
-                console.log('tubenum',tubeNum)
                 if(tubeNum == num){
                     let tmpModel = loadedModel[i];
                     addIlluminateAnimation(tmpModel);
@@ -122,16 +121,16 @@ document.getElementById('btn-remove').addEventListener('click',function(){
                 }
             }
             else if(num > 12 && num <= 16){
-                if(loadedModel[i].name == 'section-001') addSectionAnimation(loadedModel[i],200);
-                if(loadedModel[i].name == 'section-002') addSectionAnimation(loadedModel[i],180);
-                if(loadedModel[i].name == 'section-003') addSectionAnimation(loadedModel[i],160);
+                if(loadedModel[i].name == 'section-001') addSectionAnimation(loadedModel[i],210);
+                if(loadedModel[i].name == 'section-002') addSectionAnimation(loadedModel[i],190);
+                if(loadedModel[i].name == 'section-003') addSectionAnimation(loadedModel[i],170);
                 if(loadedModel[i].name == 'section-004') addSectionAnimation(loadedModel[i],75);
                 if(loadedModel[i].name.includes('Tube-')){
                     var tubeNum = parseInt(loadedModel[i].name.substring(5,8));
                     
-                    if(tubeNum <= 4) addSectionAnimation(loadedModel[i],200);
-                    else if(tubeNum > 4 && tubeNum <= 8) addSectionAnimation(loadedModel[i],180);
-                    else if(tubeNum > 8 && tubeNum <= 12) addSectionAnimation(loadedModel[i],160);
+                    if(tubeNum <= 4) addSectionAnimation(loadedModel[i],210);
+                    else if(tubeNum > 4 && tubeNum <= 8) addSectionAnimation(loadedModel[i],190);
+                    else if(tubeNum > 8 && tubeNum <= 12) addSectionAnimation(loadedModel[i],170);
 
                     else if(tubeNum > 12 && tubeNum <= 16) addSectionAnimation(loadedModel[i],75);
                 }
